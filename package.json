@@ -1,0 +1,26 @@
+{
+  "name": "logging",
+  "description": "a small logging utility",
+  "homepage": "https://github.com/mike-feldmeier/logging",
+  "bugs": "https://github.com/mike-feldmeier/logging/issues",
+  "author": "Mike Feldmeier <mike.feldmeier@gmail.com> (http://www.mikefeldmeier.com)",
+  "version": "0.0.1",
+  "license": "MIT",
+  "keywords": [
+    "log",
+    "logger",
+    "logging",
+    "utility"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mike-feldmeier/logging.git"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "dependencies": {
+    "moment": "*"
+  },
+  "main": "logging"
+}

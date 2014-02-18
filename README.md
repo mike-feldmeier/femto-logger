@@ -10,6 +10,18 @@ Desired Features
 + Level-based ANSI coloring
 + UTC-based Timestamping
 
+Usage
+-----
+
+Usage is pretty basic:
+
+    var logging = require('femto-logging');
+    logging.info('Something happened.');
+
+which will yield something like:
+
+    2014-02-18T23:34:12+00:00 [INFO] Something happened.
+
 
 Coloring
 --------
@@ -18,7 +30,6 @@ Femto-logger uses [ANSI coloring](http://en.wikipedia.org/wiki/ANSI_escape_code#
 
 The colors can be altered to your liking as such:
 
-    var logging = require('femto-logging');
     logging.config.colors.debug = logging.BRIGHT_CYAN;
 
 The defaults are as follows:
@@ -33,7 +44,6 @@ Possible values are: DARK_BLACK, DARK_RED, DARK_GREEN, DARK_YELLOW, DARK_BLUE, D
 
 It can also be disabled, which is equivalent to setting all colors to NONE:
 
-    var logging = require('femto-logging');
     logging.config.coloring = false;
 
 
@@ -44,9 +54,17 @@ Timestaamps default to UTC (GMT) for consistency, though the exact time is still
 
 The format can be changed as such:
 
-    var logging = require('femto-logging');
     logging.config.date.format = 'YYYY-MM-DDTHH:mm:ssZ';
 
 There is currently a single constant ISO8601 that can be used to reset the value.
 
 The [format](http://momentjs.com/docs/#/displaying/) of the date string is determined by the underlying [moment](http://momentjs.com/) instance.
+
+
+Labels
+------
+
+Level labels can also be altered as such:
+
+    logging.config.labels.debug = 'DEBUG';
+
