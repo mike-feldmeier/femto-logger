@@ -9,6 +9,7 @@ Desired Features
 + Different levels of reporting (DEBUG, INFO, WARNING, ERROR, FATAL)
 + Level-based ANSI coloring
 + UTC-based Timestamping
++ printf-style formatting of messages
 
 Usage
 -----
@@ -68,3 +69,12 @@ Level labels can also be altered as such:
 
     logging.config.labels.debug = 'DEBUG';
 
+
+Message Formatting
+------------------
+
+Messages can be formatted using printf-style placeholders:
+
+    logging.debug('These are placeholders: %s, %d', 'abc', 789);
+
+More information on usage of placeholders is available at the [node-printf](http://www.adaltas.com/projects/node-printf/) project website.
