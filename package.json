@@ -4,7 +4,7 @@
   "homepage": "https://github.com/mike-feldmeier/femto-logger",
   "bugs": "https://github.com/mike-feldmeier/femto-logger/issues",
   "author": "Mike Feldmeier <mike.feldmeier@gmail.com> (http://www.mikefeldmeier.com)",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "keywords": [
     "log",
