@@ -1,8 +1,8 @@
 {
-  "name": "logging",
+  "name": "femto-logger",
   "description": "a small logging utility",
-  "homepage": "https://github.com/mike-feldmeier/logging",
-  "bugs": "https://github.com/mike-feldmeier/logging/issues",
+  "homepage": "https://github.com/mike-feldmeier/femto-logger",
+  "bugs": "https://github.com/mike-feldmeier/femto-logger/issues",
   "author": "Mike Feldmeier <mike.feldmeier@gmail.com> (http://www.mikefeldmeier.com)",
   "version": "0.0.1",
   "license": "MIT",
@@ -14,7 +14,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/mike-feldmeier/logging.git"
+    "url": "https://github.com/mike-feldmeier/femto-logger.git"
   },
   "devDependencies": {
     "mocha": "*"
