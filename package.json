@@ -17,10 +17,12 @@
     "url": "https://github.com/mike-feldmeier/femto-logger.git"
   },
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "*",
+    "chai": "*"
   },
   "dependencies": {
-    "moment": "*"
+    "moment": "*",
+    "printf": "*"
   },
   "main": "logging"
 }

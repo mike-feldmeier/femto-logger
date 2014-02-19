@@ -1,4 +1,5 @@
 var moment = require('moment');
+var printf = require('printf');
 
 var DARK_BLACK = exports.DARK_BLACK = '\x1b[30m';
 var DARK_RED = exports.DARK_RED = '\x1b[31m';
@@ -18,7 +19,7 @@ var BRIGHT_MAGENTA = exports.BRIGHT_MAGENTA = '\x1b[35;1m';
 var BRIGHT_CYAN = exports.BRIGHT_CYAN = '\x1b[36;1m';
 var BRIGHT_WHITE = exports.BRIGHT_WHITE = '\x1b[37;1m';
 
-var NONE = exports.NONE = '\x1b[0m';
+var NONE = exports.NONE = '\x1b[39m';
 
 var ISO8601 = exports.ISO8601 = 'YYYY-MM-DDTHH:mm:ssZ';
 
@@ -40,34 +41,50 @@ var config = exports.config = {
   },
   date: {
     format: ISO8601
+  },
+  console: {
+    suppress: false
   }
 };
 
-exports.debug = function(message) {
-  return write(config.colors.debug, config.labels.debug, message);
+exports.debug = function() {
+  return write(config.colors.debug, config.labels.debug, arguments);
 }
 
-exports.info = function(message) {
-  return write(config.colors.info, config.labels.info, message);
+exports.info = function() {
+  return write(config.colors.info, config.labels.info, arguments);
 }
 
-exports.warning = function(message) {
-  return write(config.colors.warning, config.labels.warning, message);
+exports.warning = function() {
+  return write(config.colors.warning, config.labels.warning, arguments);
 }
 
-exports.error = function(message) {
-  return write(config.colors.error, config.labels.error, message);
+exports.error = function() {
+  return write(config.colors.error, config.labels.error, arguments);
 }
 
-exports.fatal = function(message) {
-  return write(config.colors.fatal, config.labels.fatal, message);
+exports.fatal = function() {
+  return write(config.colors.fatal, config.labels.fatal, arguments);
 }
 
-function write(color, severity, message) {
+function write(color, severity, args) {
   var now = moment();
   now.utc();
+  var timestamp = now.format(config.date.format);
 
-  var s = (config.coloring ? color : NONE) + now.format(config.date.format) + ' [' + severity + '] ' + message + NONE;
-  console.log(s);
+  var message = printf.apply(null, args);
+
+  var s = '';
+  if(config.coloring) {
+    s = printf('%s%s [%s] %s%s', color, timestamp, severity, message, NONE);
+  }
+  else {
+    s = printf('%s [%s] %s', timestamp, severity, message);
+  }
+
+  if(!config.console.suppress) {
+    console.log(s);
+  }
+
   return s;
 }
