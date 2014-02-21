@@ -78,3 +78,16 @@ Messages can be formatted using printf-style placeholders:
     logging.debug('These are placeholders: %s, %d', 'abc', 789);
 
 More information on usage of placeholders is available at the [node-printf](http://www.adaltas.com/projects/node-printf/) project website.
+
+
+Return Values
+-------------
+
+In addition to messages being logged to the console, they are also returned from the logging function:
+
+    var message = logging.debug('Now the message variable has this content as well.');
+
+Messages are logged to the console by default, but can be turned off easily:
+
+    logging.config.console.suppress = true;
+
