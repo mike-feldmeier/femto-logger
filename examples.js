@@ -1,4 +1,4 @@
-var logging = require('./logging');
+const logging = require('./logging');
 
 logging.debug('This is a standard debug message');
 logging.info('This is a standard info message');
@@ -24,6 +24,18 @@ logging.warning('This is a warning message with printf style arguments (%s, %d)'
 
 console.log('');
 
-logging.config.date.format = 'dddd, Mo MMMM YYYY';
+logging.config.date.format = 'dddd, Do MMMM YYYY';
 logging.fatal('This is a fatal message with a custom timestamp format (%s)', logging.config.date.format);
 logging.config.date.format = logging.ISO8601;  // reset
+
+console.log('');
+
+logging.config.coloring = false;
+logging.error('This is an error message with coloring disabled');
+logging.config.coloring = true;  // reset
+
+console.log('');
+
+logging.config.date.local = true;
+logging.info('This is an info message with a local timestamp');
+logging.config.date.local = false;  // reset

@@ -16,7 +16,7 @@ Usage
 
 Usage is pretty basic:
 
-    var logging = require('femto-logging');
+    const logging = require('femto-logging');
     logging.info('Something happened.');
 
 which will yield something like:
@@ -61,6 +61,10 @@ There is currently a single constant ISO8601 that can be used to reset the value
 
 The [format](http://momentjs.com/docs/#/displaying/) of the date string is determined by the underlying [moment](http://momentjs.com/) instance.
 
+As of `1.0.0`, the option to have dates returned in the local timezone has been added:
+
+    logging.config.date.local = true;
+
 
 Labels
 ------
@@ -85,9 +89,25 @@ Return Values
 
 In addition to messages being logged to the console, they are also returned from the logging function:
 
-    var message = logging.debug('Now the message variable has this content as well.');
+    const message = logging.debug('Now the message variable has this content as well.');
 
 Messages are logged to the console by default, but can be turned off easily:
 
     logging.config.console.suppress = true;
 
+Change log
+----------
+`0.0.1`
+- Initial release
+
+`0.0.2`
+- Added printf formatting
+- Added more unit tests
+- Added examples
+
+`1.0.0`
+- Updated to ES5 syntax
+- Locked down dependency versions in package.json
+- Reorganized code for better readability
+- Added option for local timezone timestamps
+- Added examples for color disabling and local timestamps
