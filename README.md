@@ -111,3 +111,6 @@ Change log
 - Reorganized code for better readability
 - Added option for local timezone timestamps
 - Added examples for color disabling and local timestamps
+
+`1.0.1`
+- Security update to dependencies
